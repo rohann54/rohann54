@@ -1,0 +1,18 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+    addToPath: true
+
+- script: |
+    pip install azure-cli
+    az login --service-principal -u <service_principal_id> -p <service_principal_secret> --tenant <tenant_id>
+    az account set --subscription <subscription_id>
+    # Add your deployment commands here
+  displayName: 'Deploy to Azure'
