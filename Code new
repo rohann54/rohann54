@@ -1,0 +1,10 @@
+def welcome_message():
+    print("Welcome to Deployment!")
+    print("This script will guide you through the deployment process.")
+
+def main():
+    welcome_message()
+    # Add your deployment code here
+
+if __name__ == "__main__":
+    main()
